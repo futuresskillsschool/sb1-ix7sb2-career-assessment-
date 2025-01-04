@@ -3,20 +3,13 @@ import { Brain, GraduationCap, Users, Briefcase } from 'lucide-react';
 import { AssessmentResult } from '../../types/results';
 import { MultiSelectResults } from './MultiSelectResults';
 import { ResultsSection } from './ResultsSection';
-import { CareerPathRecommendations } from '../CareerPathRecommendations';
-import { ResultsOverview } from './ResultsOverview';
 
 interface ResultsContentProps {
   result: AssessmentResult;
-  careerRecommendations: any[];
   multiSelectAnswers: Record<string, string[]>;
 }
 
-export function ResultsContent({ 
-  result, 
-  careerRecommendations, 
-  multiSelectAnswers 
-}: ResultsContentProps) {
+export function ResultsContent({ result, multiSelectAnswers }: ResultsContentProps) {
   return (
     <div className="space-y-8">
       <MultiSelectResults answers={multiSelectAnswers} />
@@ -49,12 +42,14 @@ export function ResultsContent({
         traits={result.preferences.workStyle}
       />
 
-      <section className="bg-white rounded-lg shadow-md p-6 mb-8">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-6">Career Recommendations</h2>
-        <CareerPathRecommendations recommendations={careerRecommendations} />
+      <section className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-2xl font-semibold text-gray-900 mb-6">Overall Recommendations</h2>
+        <ul className="list-disc list-inside text-gray-700 space-y-3">
+          {result.overallRecommendations.map((rec, index) => (
+            <li key={index}>{rec}</li>
+          ))}
+        </ul>
       </section>
-
-      <ResultsOverview recommendations={result.overallRecommendations} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Target, Users, Book } from 'lucide-react';
+import { Briefcase, TrendingUp, Target, Users, Book } from 'lucide-react';
 import { CareerRecommendation } from '../types/career';
 
 interface CareerPathRecommendationsProps {
@@ -12,7 +12,11 @@ export function CareerPathRecommendations({ recommendations }: CareerPathRecomme
       {recommendations.map((rec, index) => (
         <div 
           key={index}
-          className="bg-white rounded-xl shadow-lg overflow-hidden border-l-4 border-blue-500"
+          className={`bg-white rounded-xl shadow-lg overflow-hidden border-l-4 ${
+            rec.matchScore >= 85 ? 'border-green-500' :
+            rec.matchScore >= 70 ? 'border-blue-500' :
+            'border-yellow-500'
+          }`}
         >
           <div className="p-6">
             <div className="flex items-center justify-between mb-4">
@@ -21,6 +25,17 @@ export function CareerPathRecommendations({ recommendations }: CareerPathRecomme
                   {rec.path.title}
                 </h3>
                 <p className="text-gray-600 mt-1">{rec.path.description}</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className={`
+                  text-2xl font-bold rounded-full w-20 h-20 flex items-center justify-center
+                  ${rec.matchScore >= 85 ? 'bg-green-100 text-green-700' :
+                    rec.matchScore >= 70 ? 'bg-blue-100 text-blue-700' :
+                    'bg-yellow-100 text-yellow-700'}
+                `}>
+                  {rec.matchScore}%
+                </div>
+                <span className="text-sm text-gray-600 mt-1">Match Score</span>
               </div>
             </div>
 
@@ -42,19 +57,40 @@ export function CareerPathRecommendations({ recommendations }: CareerPathRecomme
 
               <div>
                 <div className="flex items-center mb-3">
-                  <Book className="w-5 h-5 text-purple-600 mr-2" />
-                  <h4 className="font-medium text-gray-900">Required Skills</h4>
+                  <TrendingUp className="w-5 h-5 text-green-600 mr-2" />
+                  <h4 className="font-medium text-gray-900">Salary Range</h4>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {rec.path.requiredSkills.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div className="space-y-2 text-gray-600">
+                  <div className="flex justify-between items-center">
+                    <span>Entry Level</span>
+                    <span className="font-medium">{rec.path.salary.entry}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span>Mid-Career</span>
+                    <span className="font-medium">{rec.path.salary.mid}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span>Senior Level</span>
+                    <span className="font-medium">{rec.path.salary.senior}</span>
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <div className="flex items-center mb-3">
+                <Book className="w-5 h-5 text-purple-600 mr-2" />
+                <h4 className="font-medium text-gray-900">Required Skills</h4>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {rec.path.requiredSkills.map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
 

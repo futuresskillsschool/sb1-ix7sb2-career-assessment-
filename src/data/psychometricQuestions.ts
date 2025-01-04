@@ -201,155 +201,18 @@ export const psychometricSection: Section = {
       type: 'likert'
     },
     {
-      id: 'p40',
-      text: 'I prefer to be alone rather than with others.',
-      type: 'boolean'
-    },
-    {
-      id: 'p41',
-      text: 'I find it difficult to talk to people I don\'t know.',
-      type: 'boolean'
-    },
-    {
-      id: 'p42',
-      text: 'I enjoy participating in social activities.',
-      type: 'boolean'
-    },
-    {
-      id: 'p43',
-      text: 'I get along well with my classmates.',
-      type: 'boolean'
-    },
-    {
-      id: 'p44',
-      text: 'I often feel uncomfortable in social situations.',
-      type: 'boolean'
-    },
-    {
-      id: 'p45',
-      text: 'I often feel sad for no reason.',
-      type: 'boolean'
-    },
-    {
-      id: 'p46',
-      text: 'I feel tired most of the time.',
-      type: 'boolean'
-    },
-    {
-      id: 'p47',
-      text: 'I sometimes think life is not worth living.',
-      type: 'boolean'
-    },
-    {
-      id: 'p48',
-      text: 'I enjoy my daily activities.',
-      type: 'boolean'
-    },
-    {
-      id: 'p49',
-      text: 'I often feel like crying.',
-      type: 'boolean'
-    },
-    {
-      id: 'p50',
-      text: 'I often feel nervous or anxious.',
-      type: 'boolean'
-    },
-    {
-      id: 'p51',
-      text: 'I have trouble sleeping at night.',
-      type: 'boolean'
-    },
-    {
-      id: 'p52',
-      text: 'I worry a lot about things going wrong.',
-      type: 'boolean'
-    },
-    {
-      id: 'p53',
-      text: 'I feel calm and relaxed most of the time.',
-      type: 'boolean'
-    },
-    {
-      id: 'p54',
-      text: 'I often feel like something bad is going to happen.',
-      type: 'boolean'
-    },
-    {
-      id: 'p55',
-      text: 'I feel that my family supports me.',
-      type: 'boolean'
-    },
-    {
-      id: 'p56',
-      text: 'I sometimes think about running away from home.',
-      type: 'boolean'
-    },
-    {
-      id: 'p57',
-      text: 'I get along well with my parents.',
-      type: 'boolean'
-    },
-    {
-      id: 'p58',
-      text: 'My family understands me.',
-      type: 'boolean'
-    },
-    {
-      id: 'p59',
-      text: 'There are many arguments at home.',
-      type: 'boolean'
-    },
-    {
-      id: 'p60',
-      text: 'I enjoy going to school every day.',
-      type: 'boolean'
-    },
-    {
-      id: 'p61',
-      text: 'I get into trouble at school.',
-      type: 'boolean'
-    },
-    {
-      id: 'p62',
-      text: 'I find it hard to concentrate on my studies.',
-      type: 'boolean'
-    },
-    {
-      id: 'p63',
-      text: 'I feel motivated to do well in my classes.',
-      type: 'boolean'
-    },
-    {
-      id: 'p64',
-      text: 'I have a good relationship with my teachers.',
-      type: 'boolean'
-    },
-    {
       id: 'p65',
       text: 'Which of the following best describe your personality?',
       type: 'multiple',
       options: [
-        'Outgoing',
-        'Analytical',
-        'Creative',
-        'Detail-oriented',
-        'Empathetic',
-        'Adventurous',
-        'Organized',
-        'Independent',
-        'Cooperative',
-        'Ambitious',
-        'Patient',
-        'Assertive',
-        'Flexible',
-        'Responsible',
-        'Optimistic',
-        'Curious',
-        'Practical',
-        'Sensitive',
-        'Confident',
-        'Strategic'
+        'Outgoing and social',
+        'Quiet and reserved',
+        'Creative and artistic',
+        'Logical and analytical',
+        'Caring and supportive',
+        'Organized and methodical',
+        'Adventurous and risk-taking',
+        'Cautious and careful'
       ]
     },
     {
@@ -357,19 +220,14 @@ export const psychometricSection: Section = {
       text: 'How do you typically handle challenges?',
       type: 'multiple',
       options: [
-        'Stay calm and think through solutions',
+        'Break them down into smaller tasks',
         'Seek help from others',
-        'Take immediate action',
-        'Analyze the problem in detail',
-        'Try to avoid the situation',
-        'Look for creative solutions',
-        'Break the problem into smaller parts',
-        'Use past experiences to guide decisions',
-        'Consult with a mentor or expert',
-        'Collaborate with a team',
-        'Remain optimistic and positive',
-        'Develop a step-by-step plan',
-        'Take a break and revisit later'
+        'Research and plan thoroughly',
+        'Trust my instincts',
+        'Try different approaches',
+        'Persist until solved',
+        'Learn from failures',
+        'Avoid if possible'
       ]
     },
     {
@@ -377,26 +235,116 @@ export const psychometricSection: Section = {
       text: 'What activities do you enjoy in your free time?',
       type: 'multiple',
       options: [
-        'Reading',
-        'Playing sports',
-        'Artistic activities (painting, drawing)',
-        'Solving puzzles',
-        'Socializing with friends',
-        'Volunteering',
-        'Traveling',
-        'Gaming',
-        'Cooking',
-        'Writing',
-        'Gardening',
-        'Listening to music',
-        'Watching movies or TV shows',
-        'Practicing a musical instrument',
-        'Hiking or outdoor activities',
-        'Working on DIY projects',
-        'Learning new skills or hobbies',
-        'Meditating or practicing yoga',
-        'Exercising or going to the gym'
+        'Reading and learning',
+        'Sports and exercise',
+        'Arts and crafts',
+        'Music and performance',
+        'Gaming and technology',
+        'Social activities',
+        'Nature and outdoors',
+        'Volunteering and helping others'
       ]
+    },
+    // Adding new questions
+    // Social Interaction & Comfort
+    {
+      id: 'si1',
+      text: 'How comfortable are you interacting with classmates from different backgrounds or social groups?',
+      type: 'choice',
+      options: ['Very Comfortable', 'Mostly Comfortable', 'Neutral', 'Mostly Uncomfortable', 'Very Uncomfortable']
+    },
+    {
+      id: 'si2',
+      text: 'How often do you participate in school events or extracurricular activities?',
+      type: 'choice',
+      options: ['Very Often', 'Often', 'Sometimes', 'Rarely', 'Never']
+    },
+    {
+      id: 'si3',
+      text: 'When working on group projects, how do you feel about sharing your ideas and opinions?',
+      type: 'choice',
+      options: [
+        'I feel very comfortable sharing',
+        'I feel somewhat comfortable sharing',
+        'I feel neutral',
+        'I feel somewhat uncomfortable sharing',
+        'I feel very uncomfortable sharing'
+      ]
+    },
+    // Mood & Emotional Well-being
+    {
+      id: 'mw1',
+      text: 'Over the past few weeks, how often have you felt stressed or under pressure due to schoolwork or exams?',
+      type: 'choice',
+      options: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day']
+    },
+    {
+      id: 'mw2',
+      text: 'How often do you find time to relax and engage in activities you enjoy?',
+      type: 'choice',
+      options: ['Very Often', 'Often', 'Sometimes', 'Rarely', 'Never']
+    },
+    {
+      id: 'mw3',
+      text: 'How would you describe your overall mood and emotional state these days?',
+      type: 'choice',
+      options: ['Very positive', 'Mostly positive', 'Neutral', 'Mostly negative', 'Very negative']
+    },
+    {
+      id: 'mw4',
+      text: 'How often do you have difficulty concentrating or focusing on your studies?',
+      type: 'choice',
+      options: ['Not at all', 'Several days', 'More than half the days', 'Nearly every day']
+    },
+    // Family & Home Life
+    {
+      id: 'fh1',
+      text: 'How supported do you feel by your family in your academic and personal goals?',
+      type: 'choice',
+      options: ['Very Supported', 'Mostly Supported', 'Neutral', 'Not Very Supported', 'Not at all Supported']
+    },
+    {
+      id: 'fh2',
+      text: 'How open is communication between you and your family members about your feelings and concerns?',
+      type: 'choice',
+      options: ['Very Open', 'Mostly Open', 'Neutral', 'Mostly Closed', 'Very Closed']
+    },
+    {
+      id: 'fh3',
+      text: 'How often do you feel a sense of harmony and understanding within your family?',
+      type: 'choice',
+      options: ['Very Often', 'Often', 'Sometimes', 'Rarely', 'Never']
+    },
+    // School & Academic Experience
+    {
+      id: 'sa1',
+      text: 'How do you feel about the academic expectations placed on you by your school and family?',
+      type: 'choice',
+      options: [
+        'I find them very motivating',
+        'I find them somewhat motivating',
+        'I feel neutral',
+        'I find them somewhat overwhelming',
+        'I find them very overwhelming'
+      ]
+    },
+    {
+      id: 'sa2',
+      text: 'How confident are you in your ability to succeed in your studies?',
+      type: 'choice',
+      options: ['Very Confident', 'Mostly Confident', 'Neutral', 'Not Very Confident', 'Not at all Confident']
+    },
+    {
+      id: 'sa3',
+      text: 'How well do you feel your teachers understand your individual learning needs and challenges?',
+      type: 'choice',
+      options: ['Very Well', 'Mostly Well', 'Neutral', 'Not Very Well', 'Not at all Well']
+    },
+    {
+      id: 'sa4',
+      text: 'How comfortable are you seeking help from teachers or classmates when you need it?',
+      type: 'choice',
+      options: ['Very Comfortable', 'Mostly Comfortable', 'Neutral', 'Mostly Uncomfortable', 'Very Uncomfortable']
     }
   ]
 };

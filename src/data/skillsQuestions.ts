@@ -65,29 +65,31 @@ export const skillsSection: Section = {
     },
     {
       id: 's12',
+      text: 'Which shape completes the pattern?',
+      type: 'choice',
+      options: ['Circle', 'Square', 'Triangle', 'Rectangle']
+    },
+    {
+      id: 's13',
       text: 'Which skills do you feel confident in?',
       type: 'multiple',
       options: [
-        'Communication',
-        'Critical thinking',
+        'Computer Programming',
+        'Data Analysis',
+        'Graphic Design',
+        'Writing and Communication',
+        'Problem Solving',
+        'Project Management',
+        'Research and Analysis',
         'Leadership',
-        'Technical skills',
-        'Time management',
-        'Problem-solving',
-        'Teamwork',
-        'Adaptability',
-        'Project management',
-        'Financial literacy',
-        'Writing',
-        'Public speaking',
-        'Research',
-        'Negotiation',
-        'Conflict resolution',
-        'Creativity',
-        'Networking',
-        'Decision-making',
-        'Emotional intelligence',
-        'Analytical thinking'
+        'Public Speaking',
+        'Critical Thinking',
+        'Time Management',
+        'Team Collaboration',
+        'Creative Design',
+        'Mathematical Skills',
+        'Scientific Research',
+        'Technical Writing'
       ]
     }
   ]

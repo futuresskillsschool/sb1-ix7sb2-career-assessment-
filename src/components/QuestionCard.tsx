@@ -28,14 +28,14 @@ export function QuestionCard({ question, answer, onAnswerChange }: QuestionCardP
               : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
           }`}
         >
-          <span className="text-center whitespace-normal px-2">{option.label}</span>
+          <span className="text-center">{option.label}</span>
         </button>
       ))}
     </div>
   );
 
   const renderBooleanChoice = () => (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-4">
       {['True', 'False'].map((option) => (
         <button
           key={option}
@@ -93,7 +93,7 @@ export function QuestionCard({ question, answer, onAnswerChange }: QuestionCardP
                   )}
                 </div>
               )}
-              <span className="flex-1 whitespace-normal">{option}</span>
+              <span className="flex-1">{option}</span>
             </div>
           </button>
         ))}

@@ -8,7 +8,6 @@ import { psychometricSection } from '../../data/psychometricQuestions';
 import { skillsSection } from '../../data/skillsQuestions';
 import { preferencesSection } from '../../data/preferencesQuestions';
 import { calculateResults } from '../../utils/outcomeMapping';
-import { saveResults } from '../../services/resultsService';
 
 const QUESTIONS_PER_PAGE = 5;
 
@@ -57,18 +56,15 @@ export function AssessmentQuestions() {
 
     if (currentPage < totalPages - 1) {
       setCurrentPage(currentPage + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setCompletedSections(prev => [...prev, currentSection]);
       
       if (currentSection === 'psychometric') {
         setCurrentSection('skills');
         setCurrentPage(0);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (currentSection === 'skills') {
         setCurrentSection('preferences');
         setCurrentPage(0);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setShowLeadForm(true);
       }
@@ -78,16 +74,13 @@ export function AssessmentQuestions() {
   const handlePrevPage = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       if (currentSection === 'skills') {
         setCurrentSection('psychometric');
         setCurrentPage(Math.ceil(psychometricSection.questions.length / QUESTIONS_PER_PAGE) - 1);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (currentSection === 'preferences') {
         setCurrentSection('skills');
         setCurrentPage(Math.ceil(skillsSection.questions.length / QUESTIONS_PER_PAGE) - 1);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
   };
@@ -97,12 +90,12 @@ export function AssessmentQuestions() {
       setIsSubmitting(true);
       const results = calculateResults(answers);
       
-      saveResults({
+      sessionStorage.setItem('assessmentResults', JSON.stringify({
+        answers,
         result: results,
         userData: data,
-        answers,
         completedAt: Date.now()
-      });
+      }));
       
       navigate('/results', { replace: true });
     } catch (error) {
@@ -113,7 +106,7 @@ export function AssessmentQuestions() {
   };
 
   if (showLeadForm) {
-    return <LeadForm onSubmit={handleLeadFormSubmit} isSubmitting={isSubmitting} />;
+    return <LeadForm onSubmit={handleLeadFormSubmit} />;
   }
 
   const currentSectionData = getCurrentSection();

@@ -1,15 +1,21 @@
 import { AssessmentResult } from '../types/results';
+import { Answer } from '../types/assessment';
 
-interface StoredResults {
+const RESULTS_STORAGE_KEY = 'assessmentResults';
+
+export interface StoredResults {
   result: AssessmentResult;
   userData: any;
-  answers: any[];
+  answers: Answer[];
   completedAt: number;
 }
 
 export function saveResults(data: StoredResults): void {
   try {
-    sessionStorage.setItem('assessmentResults', JSON.stringify(data));
+    if (!data.result || !data.answers) {
+      throw new Error('Invalid results data');
+    }
+    sessionStorage.setItem(RESULTS_STORAGE_KEY, JSON.stringify(data));
   } catch (error) {
     console.error('Error saving results:', error);
     throw new Error('Failed to save assessment results');
@@ -18,18 +24,25 @@ export function saveResults(data: StoredResults): void {
 
 export function loadResults(): StoredResults | null {
   try {
-    const stored = sessionStorage.getItem('assessmentResults');
+    const stored = sessionStorage.getItem(RESULTS_STORAGE_KEY);
     if (!stored) return null;
-    return JSON.parse(stored);
+    
+    const data = JSON.parse(stored);
+    if (!data.result || !data.answers) {
+      throw new Error('Invalid stored results data');
+    }
+    
+    return data;
   } catch (error) {
     console.error('Error loading results:', error);
-    throw new Error('Failed to load assessment results');
+    sessionStorage.removeItem(RESULTS_STORAGE_KEY);
+    return null;
   }
 }
 
 export function clearResults(): void {
   try {
-    sessionStorage.removeItem('assessmentResults');
+    sessionStorage.removeItem(RESULTS_STORAGE_KEY);
   } catch (error) {
     console.error('Error clearing results:', error);
   }
